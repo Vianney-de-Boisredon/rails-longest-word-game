@@ -1,0 +1,21 @@
+<h1>Results</h1>
+
+
+<ul class="letters">
+  <% params[:letters].split('').each do |l| %>
+  <li><%= l %></li>
+  <% end %>
+</ul>
+
+
+<% if @scenario == 1 %>
+<p>Sorry, but <%= params[:word] %> cannot be built out this grid --> SCORE: <%= @score %></p>
+<% elsif @scenario == 2 %>
+<p>Sorry, but <%= params[:word] %> does not seem to be an English word --> SCORE: <%= @score %></p>
+<% else %>
+<p>Congratulations, <%= params[:word] %> is a valid word --> SCORE: <%= @score %></p>
+<% end %>
+
+<p><%= link_to "Play again", new_path, class: "btn btn-success"%></p>
+
+
